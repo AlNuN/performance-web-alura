@@ -20,7 +20,7 @@
     "http-server": "^0.12.3"
   },
   "scripts": {
-    "dist": "http-server ./dist --gzip --brotli -c-1",
+    "dist": "http-server ./dist --gzip --brotli -c86400",
     "site": "http-server ./site --port 9000"
   }
 }
