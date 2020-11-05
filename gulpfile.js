@@ -98,8 +98,8 @@ gulp.task('revreplace', gulp.series(['rev']), function(){
 
 
 /* Alias */
-gulp.task('minify', gulp.series(['minify-js', 'minify-css', 'minify-html']));
-gulp.task('build', $.sequence(['minify-js', 'minify-css', 'imagemin'], 'useref', 'revreplace'));
-gulp.task('default', $.sequence('clean', 'copy', 'build'));
+gulp.task('minify', gulp.series(['minify-js', 'minify-css', 'minify-html', 'imagemin']));
+gulp.task('build', gulp.series(['minify-js', 'minify-css', 'imagemin'], 'useref'));
+gulp.task('default', gulp.series('clean', 'copy', 'build'));
 
 
