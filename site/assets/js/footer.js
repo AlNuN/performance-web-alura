@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+setTimeout(function() {
 	var newsletterForm = document.querySelector('.footer-newsletter-form');
 	newsletterForm.onsubmit = valida;
 
@@ -20,4 +20,4 @@ window.addEventListener('load', function() {
 			return re.test(email);
 	}
 
-});
+}, 1000);
