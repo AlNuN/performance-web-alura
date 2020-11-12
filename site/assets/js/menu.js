@@ -1,4 +1,4 @@
-window.addEventListener('load', function() {
+(function() {
   var titulo = document.querySelector('.header-menu-titulo');
   var menu = document.querySelector('.header-menu');
 
@@ -11,4 +11,4 @@ window.addEventListener('load', function() {
           }
       };
   }
-});
+})();
