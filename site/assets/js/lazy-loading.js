@@ -1,9 +1,16 @@
+var flag = false;
 window.onscroll = function() {
-  const imgs = document.querySelectorAll('img[data-src]');
+  var imgs = document.querySelectorAll('img[data-src]');
+
+  // Throttle
+  if (flag) return;
+  flag = true;
+  setTimeout(function(){
+    flag = false;
+  }, 100);
 
   imgs.forEach(function(img) {
-    if(img.getBoundingClientRect().top < window.innerHeight + 500)
+    if(img.getBoundingClientRect().top < window.innerHeight + 1000)
       img.src = img.getAttribute('data-src');
   });
-  
 }
