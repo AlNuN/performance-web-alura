@@ -1,35 +1,71 @@
-var imgs = document.querySelectorAll('img[data-src]');
+(function(){
 
-function getBounding () {
-  var result = [];
-  imgs.forEach(function(img){ result.push(img.getBoundingClientRect().top) });
-  return result;
-}
+  // como vamos usar o throttle varias vezes (no scroll e no resize), 
+  // encapsulei essa funcionalidade numa função
+  function throttle(fn) {
+    fn.jarodei = false;
+    
+    return function(){
+      if (fn.jarodei) return;
+      fn.jarodei = true;
+      setTimeout(function () { 
+        fn.jarodei = false; 
+      }, 200);
 
-var bounding = getBounding();
-var height = window.innerHeight;
+      fn();  
+    };
+  }
 
-window.onresize = function () {
-  bounding = getBounding();
-  height = window.innerHeight;
-}
+  // pega todas as imagens num array e pre-calcula seu topo
+  var imgs = document.querySelectorAll('img[data-src]:not([src])');
+  var cache, alturaJanela, scrollListener, resizeListener;
 
-var flag = false;
-function handleScroll() {
-  // Throttle
-  if (flag) return;
-  flag = true;
-  setTimeout(function(){
-    flag = false;
-    bounding = getBounding();
-  }, 600);
+  function refazCache() {
+    cache = [];
 
-  bounding.forEach(function(imgBounding, i) {
-    if(imgBounding < height + 200)
-      imgs.item(i).src = imgs.item(i).getAttribute('data-src');
-  });
+    // calcula os topos no cache
+    for (var i = 0; i < imgs.length; i++) {
+      cache.push({
+        topo: imgs[i].getBoundingClientRect().top + pageYOffset,
+        elemento: imgs[i]
+      });
+    }
 
-  if (bounding[bounding.length -1] < height) window.removeEventListener('scroll', handleScroll);
-}
+    // ordena o cache pela imagem mais proxima do topo
+    cache = cache.sort(function(a,b){
+      return a.topo - b.topo;
+    });
 
-window.addEventListener('scroll', handleScroll)
+    // cache da altura da janela
+    alturaJanela = window.innerHeight;
+  }
+
+  function carregaImagens() {
+    // meu while não toca no DOM, observa apenas variáveis cacheadas e o pageYOffset.
+    // só manipulo o DOM quando preciso realmente mexer na imagem.
+    while (cache.length && cache[0].topo < pageYOffset + alturaJanela + 200) {
+      var img = cache.shift().elemento;
+      img.src = img.getAttribute('data-src');
+    }
+
+    // removo eventos se não precisar mais deles
+    if (cache.length == 0) {
+      window.removeEventListener('scroll', scrollListener);
+      window.removeEventListener('resize', resizeListener);
+    }
+  }
+
+  // roda primeira vez
+  refazCache();
+  carregaImagens();
+
+  // onresize refazCache e carrega eventuais imagens
+  window.addEventListener('resize', resizeListener = throttle(function() {
+    refazCache();
+    carregaImagens();
+  }));
+
+  // onscroll só carrega imagens
+  window.addEventListener('scroll', scrollListener = throttle(carregaImagens));
+
+})();
