@@ -21,7 +21,7 @@
   <link inline rel="stylesheet" href="assets/css/home.css">
 
   <noscript>
-    <!-- build:css assets/css/resto.css -->
+    <!-- build:css assets/css/async.css -->
   </noscript>
 
   <link rel="stylesheet" href="assets/css/block-conteudo.css">
@@ -35,6 +35,16 @@
   <link rel="stylesheet" href="assets/css/block-highlighted.css">
   <link rel="stylesheet" href="assets/css/block-painelPlanos.css">
   <link rel="stylesheet" href="assets/css/block-titulos.css">
+
+  <noscript>
+    <!-- endbuild -->
+  </noscript>
+
+  <noscript>
+    <!-- build:css assets/css/home-async.css -->
+  </noscript>
+
+  <link rel="stylesheet" href="assets/css/home-diferenciais.css">
   <link rel="stylesheet" href="assets/css/home-aprenda.css">
 
   <noscript>
@@ -43,7 +53,9 @@
 
   <!-- hack to load css assynchronously -->
   <!-- build:remove --><noscript><!-- endbuild -->
-  <link rel="stylesheet" href="assets/css/resto.css" media="print"
+  <link rel="stylesheet" href="assets/css/async.css" media="print"
+    onload="this.media='all';this.onload=null;">
+  <link rel="stylesheet" href="assets/css/home-async.css" media="print"
     onload="this.media='all';this.onload=null;">
   <!-- build:remove --></noscript><!-- endbuild -->
 
@@ -905,15 +917,14 @@
 
   <script inline src="assets/js/home.js"></script>
 
-  <!-- build:js assets/js/scripts.js async -->
-  <script src="assets/js/menu.js"></script>
-  <script src="assets/js/busca.js"></script>
-  <script src="assets/js/detect.js"></script>
-  <script src="assets/js/footer.js"></script>
-  <script src="assets/js/video.js"></script>
-  <script src="assets/js/lazy-loading.js"></script>
-  <script src="assets/js/svg4everybody.js"></script> 
-  <!-- endbuild -->
+  <script async src="assets/js/menu.js"></script>
+  <script async src="assets/js/busca.js"></script>
+  <script async src="assets/js/detect.js"></script>
+  <script async src="assets/js/footer.js"></script>
+  <script async src="assets/js/video.js"></script>
+  <script async src="assets/js/lazy-loading.js"></script>
+  <script async src="assets/js/svg4everybody.js"></script> 
+
 </body>
 </html>
 
