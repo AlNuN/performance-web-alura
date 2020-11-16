@@ -50,7 +50,7 @@ gulp.task('minify-html', function() {
 
 /* Concatenação */
 gulp.task('useref', function () {
-    return gulp.src('site/index.html')
+  return gulp.src('site/**/*.html')
         .pipe($.useref())
         .pipe($.if('*.html', $.inlineSource()))
         .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))

@@ -7,14 +7,23 @@
 
   <title>Alura | Cursos online de tecnologia</title>
 
-  <!-- build:css assets/css/estilos.css -->
-  <link rel="stylesheet" href="assets/css/reset.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/colors.css">
-  <link rel="stylesheet" href="assets/css/font.css">
+  <link inline rel="stylesheet" href="assets/css/reset.css">
+  <link inline rel="stylesheet" href="assets/css/base.css">
+  <link inline rel="stylesheet" href="assets/css/colors.css">
+  <link inline rel="stylesheet" href="assets/css/font.css">
+  <link inline rel="stylesheet" href="assets/css/block-header-busca.css">
+  <link inline rel="stylesheet" href="assets/css/block-header.css">
+  <link inline rel="stylesheet" href="assets/css/block-buttons.css">
+  <link inline rel="stylesheet" href="assets/css/block-categoriaCard.css">
+  <link inline rel="stylesheet" href="assets/css/block-titulo-destaque.css">
+  <link inline rel="stylesheet" href="assets/css/home-fundo.css">
+  <link inline rel="stylesheet" href="assets/css/home-diferenciais.css">
+  <link inline rel="stylesheet" href="assets/css/home.css">
 
-  <link rel="stylesheet" href="assets/css/block-buttons.css">
-  <link rel="stylesheet" href="assets/css/block-categoriaCard.css">
+  <noscript>
+    <!-- build:css assets/css/resto.css -->
+  </noscript>
+
   <link rel="stylesheet" href="assets/css/block-conteudo.css">
   <link rel="stylesheet" href="assets/css/block-cursoCard.css">
   <link rel="stylesheet" href="assets/css/block-depoimentos.css">
@@ -23,18 +32,21 @@
   <link rel="stylesheet" href="assets/css/block-footer.css">
   <link rel="stylesheet" href="assets/css/block-form-erro.css">
   <link rel="stylesheet" href="assets/css/block-grupoCaelum.css">
-  <link rel="stylesheet" href="assets/css/block-header-busca.css">
-  <link rel="stylesheet" href="assets/css/block-header.css">
   <link rel="stylesheet" href="assets/css/block-highlighted.css">
   <link rel="stylesheet" href="assets/css/block-painelPlanos.css">
-  <link rel="stylesheet" href="assets/css/block-titulo-destaque.css">
   <link rel="stylesheet" href="assets/css/block-titulos.css">
-
   <link rel="stylesheet" href="assets/css/home-aprenda.css">
-  <link rel="stylesheet" href="assets/css/home-diferenciais.css">
-  <link rel="stylesheet" href="assets/css/home-fundo.css">
-  <link rel="stylesheet" href="assets/css/home.css">
-  <!-- endbuild -->
+
+  <noscript>
+    <!-- endbuild -->
+  </noscript>
+
+  <!-- hack to load css assynchronously -->
+  <!-- build:remove --><noscript><!-- endbuild -->
+  <link rel="stylesheet" href="assets/css/resto.css" media="print"
+    onload="this.media='all';this.onload=null;">
+  <!-- build:remove --></noscript><!-- endbuild -->
+
 </head>
 <body>
 
