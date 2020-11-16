@@ -9,6 +9,7 @@ handlers:
   - url: /
     static_files: index.html
     upload: index.html
-
+    http_headers:
+      Link: <assets/css/critical.css>; rel=preload; as=style, <assets/img/logo-alura.svg>; rel=preload; as=image, <assets/img/background-cidade-fundo.svg>; rel=preload; as=image
   - url: /assets
     static_dir: assets
