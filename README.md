@@ -1,4 +1,4 @@
-# Projeto do Curso de Otimização de Performance Web do Alura
+# Performance optimization course Web from Alura
 
 Clone the project and run `npm install` to install the dependencies.
 
