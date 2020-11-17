@@ -59,7 +59,14 @@
   <link rel="stylesheet" href="assets/css/home-async.css" media="print"
     onload="this.media='all';this.onload=null;">
   <!-- build:remove --></noscript><!-- endbuild -->
+  
+  <link rel="preload" href="assets/font/opensans/opensans-regular.woff2" as="font" type="font/woff2">
+  <link rel="preload" href="assets/font/opensans/opensans-extrabold.woff2" as="font" type="font/woff2">
+  <link rel="preload" href="assets/font/opensans/opensans-light.woff2" as="font" type="font/woff2">
 
+  <link rel="preconnect" href="//player.vimeo.com">  
+  <link rel="preconnect" href="//f.vimeocdn.com">  
+  <link rel="preconnect" href="//i.vimeocdn.com">  
 </head>
 <body>
 
@@ -678,12 +685,10 @@
     <div class="footer-column">
       <div class="footer-newsletter">
         <h2 class="footer-newsletter-titulo">Receba Novidades e Lançamentos</h2>
-        <form class="footer-newsletter-form" action="https://cursos.alura.com.br/api/cadastra-newsletter" method="POST">
-          <input type="hidden" name="retorno" value="http://localhost:9080/newsletter-cadastrado">
-
+        <div class="footer-newsletter-form">
           <input type="email" class="footer-newsletter-input" placeholder="e-mail"><!--
-          --><button type="submit" class="footer-newsletter-button buttonForm">OK</button>
-        </form>
+          --><button type="button" class="footer-newsletter-button buttonForm">OK</button>
+        </div>
       </div>
       <div class="footer-parceiros">
         <h2 class="footer-parceiros-titulo">Parceiros</h2>
